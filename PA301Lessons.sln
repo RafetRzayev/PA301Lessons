@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inheritance", "Inheritance\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JPhoneTask", "JPhoneTask\JPhoneTask.csproj", "{05B26EB8-5234-4FA2-BE9F-1AC98D17D020}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentCrud", "StudentCrud\StudentCrud.csproj", "{1DB27F07-824E-4C64-B9CA-13D25F384DAB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{05B26EB8-5234-4FA2-BE9F-1AC98D17D020}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05B26EB8-5234-4FA2-BE9F-1AC98D17D020}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05B26EB8-5234-4FA2-BE9F-1AC98D17D020}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DB27F07-824E-4C64-B9CA-13D25F384DAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DB27F07-824E-4C64-B9CA-13D25F384DAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DB27F07-824E-4C64-B9CA-13D25F384DAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DB27F07-824E-4C64-B9CA-13D25F384DAB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
