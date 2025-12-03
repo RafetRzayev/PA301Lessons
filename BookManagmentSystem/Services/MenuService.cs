@@ -8,11 +8,11 @@ namespace BookManagmentSystem.Services
 {
     internal class MenuService
     {
-        private GenreService _genreService;
-        private AuthorService _authorService;
-        private BookService _bookService;
-        private CustomerService _customerService;
-        private OrderService _orderService;
+        private readonly GenreService _genreService;
+        private readonly AuthorService _authorService;
+        private readonly BookService _bookService;
+        private readonly CustomerService _customerService;
+        private readonly OrderService _orderService;
         public MenuService(GenreService genreService, AuthorService authorService, BookService bookService, CustomerService customerService, OrderService orderService)
         {
             _genreService = genreService;

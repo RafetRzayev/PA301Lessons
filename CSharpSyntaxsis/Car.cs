@@ -2,6 +2,9 @@
 {
     class Car
     {
+        public void A()
+        {
 
+        }
     }
 }
