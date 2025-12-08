@@ -5,7 +5,6 @@
         static void Main(string[] args)
         {
             Point point = new Point();
-            point
         }
     }
 }
