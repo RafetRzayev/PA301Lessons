@@ -5,23 +5,37 @@
 
     internal class Program
     {
+        public delegate bool CarFilter(Car car);
         internal static void Main(string[] args)
         {
-            List<int> arrayList=new List<int>();
-            arrayList.Add(25);
-            arrayList.Add(12);
-            Console.WriteLine((int)arrayList[0] + (int)arrayList[1]);
-        }
+            var cars = new List<Car>();
 
-        internal static void ShowEvenNumber(int n)
-        {
-            while (n > 0)
+            cars.Add(new Car("Toyota", 2012));
+            cars.Add(new Car("Honda", 2015));
+            cars.Add(new Car("Toyota", 2014));
+            cars.Add(new Car("Honda", 1456));
+            cars.Add(new Car("Honda", 2000));
+
+            cars.RemoveAll(car => car.Name == "Toyota");
+
+
+
+            foreach (var car in cars)
             {
-                int r = n % 10;
-                n /= 10;
-                if (r % 2 == 0)
-                    Console.WriteLine(r);
+                Console.WriteLine(car.Name);
             }
+        }
+    }
+
+    class Car
+    {
+        public int Year { get; set; }
+        public string Name { get; set; }
+
+        public Car(string name, int year)
+        {
+            Name = name;
+            Year = year;
         }
     }
 }

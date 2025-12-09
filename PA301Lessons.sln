@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delegates", "Delegates\Dele
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuizExplain", "QuizExplain\QuizExplain.csproj", "{A83C337F-7076-4D84-8490-5A4B9D074A63}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentCrudWithDelegate", "StudentCrudWithDelegate\StudentCrudWithDelegate.csproj", "{0C18D1EF-3BAD-41B5-B160-1824BE600977}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{A83C337F-7076-4D84-8490-5A4B9D074A63}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A83C337F-7076-4D84-8490-5A4B9D074A63}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A83C337F-7076-4D84-8490-5A4B9D074A63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C18D1EF-3BAD-41B5-B160-1824BE600977}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C18D1EF-3BAD-41B5-B160-1824BE600977}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C18D1EF-3BAD-41B5-B160-1824BE600977}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C18D1EF-3BAD-41B5-B160-1824BE600977}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
