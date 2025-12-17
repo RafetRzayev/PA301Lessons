@@ -29,6 +29,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentCrudWithDelegate", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterfacesAndExceptionHandling", "InterfacesAndExceptionHandling\InterfacesAndExceptionHandling.csproj", "{EDB5F02C-BAD1-434E-B08C-411816A12C05}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NullableTypesException", "NullableTypesException\NullableTypesException.csproj", "{FDC3DB5E-E23A-4A6A-8B9B-DC1FF2319BD3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DelegateTasks", "DelegateTasks\DelegateTasks.csproj", "{C9144B6D-05B4-463C-9EA2-DB680F08B125}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +91,14 @@ Global
 		{EDB5F02C-BAD1-434E-B08C-411816A12C05}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EDB5F02C-BAD1-434E-B08C-411816A12C05}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EDB5F02C-BAD1-434E-B08C-411816A12C05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDC3DB5E-E23A-4A6A-8B9B-DC1FF2319BD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDC3DB5E-E23A-4A6A-8B9B-DC1FF2319BD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDC3DB5E-E23A-4A6A-8B9B-DC1FF2319BD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDC3DB5E-E23A-4A6A-8B9B-DC1FF2319BD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9144B6D-05B4-463C-9EA2-DB680F08B125}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9144B6D-05B4-463C-9EA2-DB680F08B125}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9144B6D-05B4-463C-9EA2-DB680F08B125}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9144B6D-05B4-463C-9EA2-DB680F08B125}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
