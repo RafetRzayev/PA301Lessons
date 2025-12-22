@@ -33,6 +33,20 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NullableTypesException", "N
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DelegateTasks", "DelegateTasks\DelegateTasks.csproj", "{C9144B6D-05B4-463C-9EA2-DB680F08B125}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XOGame", "XOGame\XOGame.csproj", "{2687CB8A-25F8-4A68-B0F5-58D42210A7C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventsInNet", "EventsInNet\EventsInNet.csproj", "{6DD879AA-22CB-42E1-AB7A-20DFF8D69360}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "academy", "academy", "{C3EB0200-B322-4E5A-844C-49D7834C59BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Academy.DataAccessLayer", "Academy.DataAccessLayer\Academy.DataAccessLayer.csproj", "{D1C286B7-AB69-4ECB-9262-CD55D70157D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Academy.BusinessLogicLayer", "Academy.BusinessLogicLayer\Academy.BusinessLogicLayer.csproj", "{81105F2A-F78B-4EF3-929F-57B3F112ACAC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Academy.ConsoleUI", "Academy.ConsoleUI\Academy.ConsoleUI.csproj", "{65E2A175-22AF-40BE-91E5-793EBE2CF161}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,9 +113,35 @@ Global
 		{C9144B6D-05B4-463C-9EA2-DB680F08B125}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C9144B6D-05B4-463C-9EA2-DB680F08B125}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C9144B6D-05B4-463C-9EA2-DB680F08B125}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2687CB8A-25F8-4A68-B0F5-58D42210A7C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2687CB8A-25F8-4A68-B0F5-58D42210A7C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2687CB8A-25F8-4A68-B0F5-58D42210A7C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2687CB8A-25F8-4A68-B0F5-58D42210A7C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DD879AA-22CB-42E1-AB7A-20DFF8D69360}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DD879AA-22CB-42E1-AB7A-20DFF8D69360}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DD879AA-22CB-42E1-AB7A-20DFF8D69360}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DD879AA-22CB-42E1-AB7A-20DFF8D69360}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1C286B7-AB69-4ECB-9262-CD55D70157D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1C286B7-AB69-4ECB-9262-CD55D70157D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1C286B7-AB69-4ECB-9262-CD55D70157D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1C286B7-AB69-4ECB-9262-CD55D70157D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81105F2A-F78B-4EF3-929F-57B3F112ACAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81105F2A-F78B-4EF3-929F-57B3F112ACAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81105F2A-F78B-4EF3-929F-57B3F112ACAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81105F2A-F78B-4EF3-929F-57B3F112ACAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65E2A175-22AF-40BE-91E5-793EBE2CF161}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65E2A175-22AF-40BE-91E5-793EBE2CF161}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65E2A175-22AF-40BE-91E5-793EBE2CF161}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65E2A175-22AF-40BE-91E5-793EBE2CF161}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C3EB0200-B322-4E5A-844C-49D7834C59BA} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{D1C286B7-AB69-4ECB-9262-CD55D70157D8} = {C3EB0200-B322-4E5A-844C-49D7834C59BA}
+		{81105F2A-F78B-4EF3-929F-57B3F112ACAC} = {C3EB0200-B322-4E5A-844C-49D7834C59BA}
+		{65E2A175-22AF-40BE-91E5-793EBE2CF161} = {C3EB0200-B322-4E5A-844C-49D7834C59BA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {34CC3BCE-2EE1-4020-BE4B-33E577823146}

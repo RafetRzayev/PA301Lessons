@@ -1,8 +1,8 @@
 ﻿namespace Delegates
 {
-    public delegate void Delegates();
     internal class Program
     {
+        public delegate void Delegates();
         static void Main(string[] args)
         {
             var t = Get();
@@ -28,6 +28,8 @@
         {
             Id = id;
             Name = name;
+
+            var pr = new Program();
         }
 
         public int Id {  get; set; }
