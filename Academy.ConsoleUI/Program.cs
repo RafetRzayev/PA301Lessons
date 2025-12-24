@@ -8,8 +8,8 @@ namespace Academy.ConsoleUI
     {
         static void Main(string[] args)
         {
-            var studentRepository = new StudentRepository();
-            var groupRepository = new GroupRepository();
+            var studentRepository = new StudentWithFileRepository();
+            var groupRepository = new GroupWithFileRepository(studentRepository);
             var studentManager = new StudentManager(studentRepository);
             var groupManager = new GroupManager(groupRepository);
 
@@ -136,7 +136,7 @@ namespace Academy.ConsoleUI
             var students = studentManager.GetStudents();
             foreach (var student in students)
             {
-                Console.WriteLine($"ID: {student.Id}, Name: {student.FirstName} {student.LastName}, Group: {student.GroupName}");
+                Console.WriteLine($"ID: {student.Id}, Name: {student.FirstName} {student.LastName}, Group: {student.GroupId},{student.GroupName}");
             }
         }
 
@@ -148,11 +148,14 @@ namespace Academy.ConsoleUI
             string firstName = Console.ReadLine()!;
             Console.Write("Enter Last Name: ");
             string lastName = Console.ReadLine()!;
+            Console.Write("Enter Group ID: ");
+            int groupId = int.Parse(Console.ReadLine()!);
             studentManager.AddStudent(new CreateStudentDto
             {
                 Id = id,
                 FirstName = firstName,
                 LastName = lastName,
+                GroupId = groupId,
             });
             Console.WriteLine("Student added successfully.");
         }
@@ -165,10 +168,13 @@ namespace Academy.ConsoleUI
             string firstName = Console.ReadLine()!;
             Console.Write("Enter New Last Name: ");
             string lastName = Console.ReadLine()!;
+            Console.Write("Enter New Group ID: ");
+            var groupId = int.Parse(Console.ReadLine()!);
             studentManager.UpdateStudent(id, new UpdateStudentDto
             {
                 FirstName = firstName,
                 LastName = lastName,
+                GroupId = groupId,
             });
             Console.WriteLine("Student updated successfully.");
         }
@@ -187,6 +193,12 @@ namespace Academy.ConsoleUI
             foreach (var group in groups)
             {
                 Console.WriteLine($"ID: {group.Id}, Name: {group.Name}");
+
+                if (group.StudentNames.Count == 0)
+                {
+                    Console.WriteLine("  No students in this group.");
+                    continue;
+                }
 
                 foreach (var item in group.StudentNames)
                 {

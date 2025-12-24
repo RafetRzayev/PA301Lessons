@@ -21,7 +21,7 @@ public class StudentManager : IStudentService
             Id = createStudentDto.Id,
             FirstName = createStudentDto.FirstName,
             LastName = createStudentDto.LastName,
-            Group = createStudentDto.Group
+            GroupId = createStudentDto.GroupId
         });
     }
 
@@ -57,7 +57,8 @@ public class StudentManager : IStudentService
             Id = student.Id,
             FirstName = student.FirstName,
             LastName = student.LastName,
-            GroupName = student.Group?.Name
+            GroupName = student.Group?.Name,
+            GroupId = student.GroupId
         }).ToList();
     }
 
@@ -67,7 +68,7 @@ public class StudentManager : IStudentService
         {
             FirstName = updateStudentDto.FirstName,
             LastName = updateStudentDto.LastName,
-            Group = updateStudentDto.Group
+            GroupId = updateStudentDto.GroupId
         };
 
         _studentRepository.Update(id, student);
