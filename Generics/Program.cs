@@ -4,10 +4,6 @@
     {
         static void Main(string[] args)
         {
-            var factory = new Factory<Person>();
-            Person p = factory.CreateInstance();
-            Console.WriteLine(p.Name); 
-            // Output: Unknown
         }
 
         public static void Swap<T>(ref T a, ref T b)

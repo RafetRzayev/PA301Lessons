@@ -49,6 +49,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Academy.ConsoleUI", "Academ
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkingWithFiles", "WorkingWithFiles\WorkingWithFiles.csproj", "{791BE3D2-C572-4D08-93A6-BB04800B6FCE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EfDemo", "EfDemo\EfDemo.csproj", "{B4DA8D77-8183-4C62-856C-E200D22B7E0B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -139,6 +141,10 @@ Global
 		{791BE3D2-C572-4D08-93A6-BB04800B6FCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{791BE3D2-C572-4D08-93A6-BB04800B6FCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{791BE3D2-C572-4D08-93A6-BB04800B6FCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4DA8D77-8183-4C62-856C-E200D22B7E0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4DA8D77-8183-4C62-856C-E200D22B7E0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4DA8D77-8183-4C62-856C-E200D22B7E0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4DA8D77-8183-4C62-856C-E200D22B7E0B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
