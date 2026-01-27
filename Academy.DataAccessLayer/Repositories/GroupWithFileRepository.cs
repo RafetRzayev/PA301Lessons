@@ -15,7 +15,7 @@ namespace Academy.DataAccessLayer.Repositories
 
         public GroupWithFileRepository(IStudentRepository studentRepository)
         {
-            _studentRepository = studentRepository;
+            _studentRepository = studentRepository;       
         }
 
         public void Add(Group entity)

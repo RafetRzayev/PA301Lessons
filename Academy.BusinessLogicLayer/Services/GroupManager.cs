@@ -56,7 +56,7 @@ public class GroupManager : IGroupService
 
     public List<GroupDto> GetGroupsWithStudents()
     {
-        var groups = _groupRepository.GetGroupsWithStudents();
+        var groups = _groupRepository.GetAll();
 
         return groups.Select(group => new GroupDto
         {
