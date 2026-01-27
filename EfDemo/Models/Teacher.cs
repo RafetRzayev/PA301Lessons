@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace EfDemo.Models
 {
-    internal class Student
+    internal class Teacher
     {
         public int Id { get; set; }
-        public string? Name { get; set; }
-
-        public int GroupId { get; set; }
-        public Group? Group { get; set; }
+        public string Name { get; set; } = null!; 
+        
+        public List<TeacherGroup> TeacherGroups { get; set; } = [];
     }
 }

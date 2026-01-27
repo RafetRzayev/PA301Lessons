@@ -3,6 +3,7 @@ using EfDemo;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EfDemo.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260122151604_Test")]
+    partial class Test
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -59,46 +62,6 @@ namespace EfDemo.Migrations
                     b.ToTable("Students");
                 });
 
-            modelBuilder.Entity("EfDemo.Models.Teacher", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Teachers");
-                });
-
-            modelBuilder.Entity("EfDemo.Models.TeacherGroup", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("GroupId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TeacherId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("GroupId");
-
-                    b.HasIndex("TeacherId");
-
-                    b.ToTable("TeacherGroups");
-                });
-
             modelBuilder.Entity("EfDemo.Models.Student", b =>
                 {
                     b.HasOne("EfDemo.Models.Group", "Group")
@@ -110,35 +73,9 @@ namespace EfDemo.Migrations
                     b.Navigation("Group");
                 });
 
-            modelBuilder.Entity("EfDemo.Models.TeacherGroup", b =>
-                {
-                    b.HasOne("EfDemo.Models.Group", "Group")
-                        .WithMany("TeacherGroups")
-                        .HasForeignKey("GroupId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("EfDemo.Models.Teacher", "Teacher")
-                        .WithMany("TeacherGroups")
-                        .HasForeignKey("TeacherId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Group");
-
-                    b.Navigation("Teacher");
-                });
-
             modelBuilder.Entity("EfDemo.Models.Group", b =>
                 {
                     b.Navigation("Students");
-
-                    b.Navigation("TeacherGroups");
-                });
-
-            modelBuilder.Entity("EfDemo.Models.Teacher", b =>
-                {
-                    b.Navigation("TeacherGroups");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,5 +1,6 @@
 ﻿using Academy.BusinessLogicLayer.Dtos;
 using Academy.BusinessLogicLayer.Services;
+using Academy.DataAccessLayer.DataContext;
 using Academy.DataAccessLayer.Repositories;
 
 namespace Academy.ConsoleUI
@@ -8,8 +9,9 @@ namespace Academy.ConsoleUI
     {
         static void Main(string[] args)
         {
-            var studentRepository = new StudentWithFileRepository();
-            var groupRepository = new GroupWithFileRepository(studentRepository);
+            var appDbContext = new AcademyDbContext();
+            var studentRepository = new StudentWithEfRepository(appDbContext);
+            var groupRepository = new GroupWithEfRepository(appDbContext);
             var studentManager = new StudentManager(studentRepository);
             var groupManager = new GroupManager(groupRepository);
 
@@ -142,8 +144,6 @@ namespace Academy.ConsoleUI
 
         private static void AddStudent(StudentManager studentManager)
         {
-            Console.Write("Enter Student ID: ");
-            int id = int.Parse(Console.ReadLine()!);
             Console.Write("Enter First Name: ");
             string firstName = Console.ReadLine()!;
             Console.Write("Enter Last Name: ");
@@ -152,7 +152,6 @@ namespace Academy.ConsoleUI
             int groupId = int.Parse(Console.ReadLine()!);
             studentManager.AddStudent(new CreateStudentDto
             {
-                Id = id,
                 FirstName = firstName,
                 LastName = lastName,
                 GroupId = groupId,
@@ -209,13 +208,10 @@ namespace Academy.ConsoleUI
 
         private static void AddGroup(GroupManager groupManager)
         {
-            Console.Write("Enter Group ID: ");
-            int id = int.Parse(Console.ReadLine()!);
             Console.Write("Enter Group Name: ");
             string name = Console.ReadLine()!;
             groupManager.AddGroup(new CreateGroupDto
             {
-                Id = id,
                 Name = name,
             });
             Console.WriteLine("Group added successfully.");

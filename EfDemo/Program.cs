@@ -8,15 +8,20 @@ namespace EfDemo
         static void Main(string[] args)
         {
             var appDbContext = new AppDbContext();
-
-            var studentWith2Id = appDbContext.Students.AsNoTracking().SingleOrDefault(x => x.Id == 3);
-            appDbContext.Students.Remove(studentWith2Id);
-            appDbContext.SaveChanges();
-            var students = appDbContext.Students;
-            foreach (var student in students)
+            var teacher = new Teacher
             {
-                Console.WriteLine($"Id: {student.Id}, Name: {student.Name}");
-            }
+                Name = "New teacher 3",
+                TeacherGroups = new List<TeacherGroup>
+                {
+                    new TeacherGroup
+                    {
+                        GroupId = 2
+                    }
+                }
+            };
+
+            appDbContext.Teachers.Add(teacher);
+            appDbContext.SaveChanges();
         }
     }
 }

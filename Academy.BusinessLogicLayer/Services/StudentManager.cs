@@ -18,7 +18,6 @@ public class StudentManager : IStudentService
     {
         _studentRepository.Add(new Student
         {
-            Id = createStudentDto.Id,
             FirstName = createStudentDto.FirstName,
             LastName = createStudentDto.LastName,
             GroupId = createStudentDto.GroupId

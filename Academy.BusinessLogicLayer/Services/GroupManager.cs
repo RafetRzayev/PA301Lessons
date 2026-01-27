@@ -18,7 +18,6 @@ public class GroupManager : IGroupService
     {
         _groupRepository.Add(new Group
         {
-            Id = createGroupDto.Id,
             Name = createGroupDto.Name
         });
     }

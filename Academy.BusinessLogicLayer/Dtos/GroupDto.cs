@@ -9,7 +9,6 @@ public class GroupDto
 
 public class CreateGroupDto
 {
-    public int Id { get; set; }
     public required string Name { get; set; }
 }
 

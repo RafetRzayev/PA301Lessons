@@ -44,7 +44,6 @@ public class TeacherRepository : ITeacherRepository
         {
             existingTeacher.FirstName = entity.FirstName;
             existingTeacher.LastName = entity.LastName;
-            existingTeacher.Groups = entity.Groups;
             return;
         }
 

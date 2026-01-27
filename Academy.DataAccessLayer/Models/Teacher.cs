@@ -2,14 +2,7 @@
 
 public class Teacher : Entity
 {
-   public Teacher(string firstName, string lastName)
-    {
-        FirstName = firstName;
-        LastName = lastName;
-    }
-
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
-
-    public List<Group> Groups { get; set; } = [];
+    public string FirstName { get; set; } = null!;
+    public string LastName { get; set; } = null!;
+    public List<TeacherGroup> TeacherGroups { get; set; } = [];
 }
