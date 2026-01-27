@@ -1,13 +1,9 @@
 ﻿using Academy.BusinessLogicLayer.Dtos;
+using Academy.DataAccessLayer.Models;
 
 namespace Academy.BusinessLogicLayer.Services.Contracts;
 
-public interface IGroupService
+public interface IGroupService : ICrudService<Group, GroupDto, CreateGroupDto, UpdateGroupDto>
 {
-    List<GroupDto> GetGroups();
-    List<GroupDto> GetGroupsWithStudents();
-    GroupDto? GetGroupById(int id);
-    void AddGroup(CreateGroupDto createGroupDto);
-    void UpdateGroup(int id, UpdateGroupDto updateGroupDto);
-    void DeleteGroup(int id);
+  
 }

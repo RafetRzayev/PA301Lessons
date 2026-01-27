@@ -2,6 +2,7 @@
 using Academy.DataAccessLayer.Models;
 using Academy.DataAccessLayer.Repositories.Contracts;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query;
 
 namespace Academy.DataAccessLayer.Repositories;
 
@@ -31,11 +32,16 @@ public class EfCoreRepository<T> : IRepository<T> where T : Entity
         }
     }
 
-    public virtual List<T> GetAll()
+    public List<T> GetAll(Func<IQueryable<T>, IIncludableQueryable<T, object>>? include = null)
     {
-        var entities = AppDbContext.Set<T>().ToList();
+        var query = AppDbContext.Set<T>().AsQueryable();
 
-        return entities;
+        if (include != null)
+        {
+            query = include(query);
+        }
+
+        return query.ToList();
     }
 
     public virtual T? GetById(int id)

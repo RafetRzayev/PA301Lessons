@@ -1,12 +1,8 @@
 ﻿using Academy.BusinessLogicLayer.Dtos;
+using Academy.DataAccessLayer.Models;
 
 namespace Academy.BusinessLogicLayer.Services.Contracts;
 
-public interface IStudentService
+public interface IStudentService : ICrudService<Student, StudentDto, CreateStudentDto, UpdateStudentDto>
 {
-    List<StudentDto> GetStudents();
-    StudentDto? GetStudentById(int id);
-    void AddStudent(CreateStudentDto createStudentDto);
-    void UpdateStudent(int id, UpdateStudentDto updateStudentDto);
-    void DeleteStudent(int id);
 }

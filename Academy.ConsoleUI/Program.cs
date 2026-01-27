@@ -1,7 +1,12 @@
 ﻿using Academy.BusinessLogicLayer.Dtos;
+using Academy.BusinessLogicLayer.Mapping;
 using Academy.BusinessLogicLayer.Services;
 using Academy.DataAccessLayer.DataContext;
+using Academy.DataAccessLayer.Models;
 using Academy.DataAccessLayer.Repositories;
+using Academy.DataAccessLayer.Repositories.Contracts;
+using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 
 namespace Academy.ConsoleUI
 {
@@ -10,8 +15,9 @@ namespace Academy.ConsoleUI
         static void Main(string[] args)
         {
             var appDbContext = new AcademyDbContext();
-            var studentRepository = new StudentWithEfRepository(appDbContext);
-            var groupRepository = new GroupWithEfRepository(appDbContext);
+            IRepository<Student> studentRepository = new StudentWithEfRepository(appDbContext);
+            IRepository<Group> groupRepository = new GroupWithEfRepository(appDbContext);
+
             var studentManager = new StudentManager(studentRepository);
             var groupManager = new GroupManager(groupRepository);
 
@@ -135,7 +141,7 @@ namespace Academy.ConsoleUI
 
         private static void ListStudents(StudentManager studentManager)
         {
-            var students = studentManager.GetStudents();
+            var students = studentManager.GetAll(x => x.Include(y => y.Group!));
             foreach (var student in students)
             {
                 Console.WriteLine($"ID: {student.Id}, Name: {student.FirstName} {student.LastName}, Group: {student.GroupId},{student.GroupName}");
@@ -150,7 +156,7 @@ namespace Academy.ConsoleUI
             string lastName = Console.ReadLine()!;
             Console.Write("Enter Group ID: ");
             int groupId = int.Parse(Console.ReadLine()!);
-            studentManager.AddStudent(new CreateStudentDto
+            studentManager.Add(new CreateStudentDto
             {
                 FirstName = firstName,
                 LastName = lastName,
@@ -169,7 +175,7 @@ namespace Academy.ConsoleUI
             string lastName = Console.ReadLine()!;
             Console.Write("Enter New Group ID: ");
             var groupId = int.Parse(Console.ReadLine()!);
-            studentManager.UpdateStudent(id, new UpdateStudentDto
+            studentManager.Update(id, new UpdateStudentDto
             {
                 FirstName = firstName,
                 LastName = lastName,
@@ -182,13 +188,13 @@ namespace Academy.ConsoleUI
         {
             Console.Write("Enter Student ID to delete: ");
             int id = int.Parse(Console.ReadLine()!);
-            studentManager.DeleteStudent(id);
+            studentManager.Delete(id);
             Console.WriteLine("Student deleted successfully.");
         }
 
         private static void PrintGroups(GroupManager groupManager)
         {
-            var groups = groupManager.GetGroupsWithStudents();
+            var groups = groupManager.GetAll(x => x.Include(y => y.Students));
             foreach (var group in groups)
             {
                 Console.WriteLine($"ID: {group.Id}, Name: {group.Name}");
@@ -210,7 +216,7 @@ namespace Academy.ConsoleUI
         {
             Console.Write("Enter Group Name: ");
             string name = Console.ReadLine()!;
-            groupManager.AddGroup(new CreateGroupDto
+            groupManager.Add(new CreateGroupDto
             {
                 Name = name,
             });
@@ -223,7 +229,7 @@ namespace Academy.ConsoleUI
             int id = int.Parse(Console.ReadLine()!);
             Console.Write("Enter New Group Name: ");
             string name = Console.ReadLine()!;
-            groupManager.UpdateGroup(id, new UpdateGroupDto
+            groupManager.Update(id, new UpdateGroupDto
             {
                 Name = name,
             });
@@ -234,7 +240,7 @@ namespace Academy.ConsoleUI
         {
             Console.Write("Enter Group ID to delete: ");
             int id = int.Parse(Console.ReadLine()!);
-            groupManager.DeleteGroup(id);
+            groupManager.Delete(id);
             Console.WriteLine("Group deleted successfully.");
         }
 

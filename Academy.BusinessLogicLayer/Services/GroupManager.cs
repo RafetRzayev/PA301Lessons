@@ -2,77 +2,29 @@
 using Academy.BusinessLogicLayer.Dtos;
 using Academy.DataAccessLayer.Repositories.Contracts;
 using Academy.DataAccessLayer.Models;
+using AutoMapper;
+using Microsoft.EntityFrameworkCore.Query;
 
 namespace Academy.BusinessLogicLayer.Services;
 
-public class GroupManager : IGroupService
+public class GroupManager : CrudManager<Group, GroupDto, CreateGroupDto, UpdateGroupDto>, IGroupService
 {
-    private readonly IGroupRepository _groupRepository;
-
-    public GroupManager(IGroupRepository groupRepository)
+    public GroupManager(IRepository<Group> repository) : base(repository)
     {
-        _groupRepository = groupRepository;
     }
 
-    public void AddGroup(CreateGroupDto createGroupDto)
+    public override List<GroupDto> GetAll(Func<IQueryable<Group>, IIncludableQueryable<Group, object>>? include = null)
     {
-        _groupRepository.Add(new Group
+        IGroupRepository groupRepository = (IGroupRepository)Repository;
+        var groups = groupRepository.GetAll(include);
+
+        var groupDtos = groups.Select(g => new GroupDto
         {
-            Name = createGroupDto.Name
-        });
-    }
-
-    public void DeleteGroup(int id)
-    {
-        _groupRepository.Delete(id);
-    }
-
-    public GroupDto? GetGroupById(int id)
-    {
-        var group = _groupRepository.GetById(id);
-
-        if (group is null)
-        {
-            return null;
-        }
-
-        return new GroupDto
-        {
-            Id = group.Id,
-            Name = group.Name
-        };
-    }
-
-    public List<GroupDto> GetGroups()
-    {
-        var groups = _groupRepository.GetAll();
-
-        return groups.Select(group => new GroupDto
-        {
-            Id = group.Id,
-            Name = group.Name,
+            Id = g.Id,
+            Name = g.Name,
+            StudentNames = g.Students.Select(s => s.FirstName).ToList()
         }).ToList();
-    }
 
-    public List<GroupDto> GetGroupsWithStudents()
-    {
-        var groups = _groupRepository.GetAll();
-
-        return groups.Select(group => new GroupDto
-        {
-            Id = group.Id,
-            Name = group.Name,
-            StudentNames = group.Students.Select(x => x.FirstName).ToList()
-        }).ToList();
-    }
-
-    public void UpdateGroup(int id, UpdateGroupDto updateGroupDto)
-    {
-        var group = new Group
-        {
-            Name = updateGroupDto.Name
-        };
-
-        _groupRepository.Update(id, group);
+        return groupDtos;
     }
 }

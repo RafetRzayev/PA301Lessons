@@ -1,6 +1,7 @@
 ﻿using Academy.DataAccessLayer.DataContext;
 using Academy.DataAccessLayer.Models;
 using Academy.DataAccessLayer.Repositories.Contracts;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,6 @@ namespace Academy.DataAccessLayer.Repositories
     {
         public StudentWithEfRepository(AcademyDbContext context) : base(context)
         {
-        }  
+        }
     }
 }
