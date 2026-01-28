@@ -12,19 +12,4 @@ public class GroupManager : CrudManager<Group, GroupDto, CreateGroupDto, UpdateG
     public GroupManager(IRepository<Group> repository) : base(repository)
     {
     }
-
-    public override List<GroupDto> GetAll(Func<IQueryable<Group>, IIncludableQueryable<Group, object>>? include = null)
-    {
-        IGroupRepository groupRepository = (IGroupRepository)Repository;
-        var groups = groupRepository.GetAll(include);
-
-        var groupDtos = groups.Select(g => new GroupDto
-        {
-            Id = g.Id,
-            Name = g.Name,
-            StudentNames = g.Students.Select(s => s.FirstName).ToList()
-        }).ToList();
-
-        return groupDtos;
-    }
 }

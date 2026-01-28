@@ -3,6 +3,8 @@ using Academy.DataAccessLayer.Models;
 using Academy.DataAccessLayer.Repositories.Contracts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
+using System.Linq;
+using System.Linq.Expressions;
 
 namespace Academy.DataAccessLayer.Repositories;
 
@@ -32,13 +34,18 @@ public class EfCoreRepository<T> : IRepository<T> where T : Entity
         }
     }
 
-    public List<T> GetAll(Func<IQueryable<T>, IIncludableQueryable<T, object>>? include = null)
+    public List<T> GetAll(Func<IQueryable<T>, IIncludableQueryable<T, object>>? include = null, Expression<Func<T, bool>>? predicate = null)
     {
         var query = AppDbContext.Set<T>().AsQueryable();
 
         if (include != null)
         {
             query = include(query);
+        }
+
+        if (predicate != null)
+        {
+            query = query.Where(predicate);
         }
 
         return query.ToList();

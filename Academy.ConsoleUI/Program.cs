@@ -7,6 +7,7 @@ using Academy.DataAccessLayer.Repositories;
 using Academy.DataAccessLayer.Repositories.Contracts;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 
 namespace Academy.ConsoleUI
 {
@@ -141,7 +142,22 @@ namespace Academy.ConsoleUI
 
         private static void ListStudents(StudentManager studentManager)
         {
-            var students = studentManager.GetAll(x => x.Include(y => y.Group!));
+            Console.WriteLine("Do you want to filter (y/n): ");
+            var filterChoice = Console.ReadLine();
+            var filterText = string.Empty;
+            Expression<Func<Student, bool>> filter = null;
+
+            if (!string.IsNullOrEmpty(filterChoice))
+            {
+                if (filterChoice == "y")
+                {
+                    filterText = Console.ReadLine()!;
+                    filter = DynamicPredicateBuilder.ParseFilter<Student>(filterText)!;
+                }
+            }
+
+            var students = filterChoice == "y" ? studentManager.GetAll(predicate:filter) : studentManager.GetAll();
+
             foreach (var student in students)
             {
                 Console.WriteLine($"ID: {student.Id}, Name: {student.FirstName} {student.LastName}, Group: {student.GroupId},{student.GroupName}");

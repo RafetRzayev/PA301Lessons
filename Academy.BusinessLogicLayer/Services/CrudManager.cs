@@ -4,6 +4,7 @@ using Academy.DataAccessLayer.Repositories.Contracts;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore.Query;
 using Microsoft.Extensions.Logging.Abstractions;
+using System.Linq.Expressions;
 
 namespace Academy.BusinessLogicLayer.Services;
 
@@ -33,9 +34,9 @@ public class CrudManager<TEntity, TDto, TCreateDto, TUpdateDto> : ICrudService<T
         Repository.Delete(id);
     }
 
-    public virtual List<TDto> GetAll(Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>>? include = null)
+    public List<TDto> GetAll(Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>>? include = null, Expression<Func<TEntity, bool>>? predicate = null)
     {
-        var entities = Repository.GetAll(include);
+        var entities = Repository.GetAll(include, predicate);
         var dtos = Mapper.Map<List<TDto>>(entities);
 
         return dtos;
